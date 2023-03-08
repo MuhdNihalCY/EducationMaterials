@@ -1,0 +1,92 @@
+:root {
+    --light:#F5F5F5;
+    --bitLight:#D6E6F2;
+    --DarkLight:#303841;
+
+}
+
+body {
+    margin: 0;
+    background-color: var(--bitLight);
+}
+
+header {
+    width: 100%;
+    height: 80px;
+    background-color:  var(--DarkLight);
+}
+
+.HeaderMain {
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.leftSide {
+    display: flex;
+    
+}
+
+.HeadIcon {
+    width: 50px;
+    height: 50px;
+}
+
+.Heading {
+    margin-left: 15px;
+    margin-top: 8px;
+    color:var(--light);
+}
+
+.SavedTag {
+   width: 20px;
+   height: 20px;
+   filter: brightness(90%) invert(90%);
+}
+.RtSide{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.LoginBTN {
+    margin-left: 10px;
+    text-align: center;
+}
+
+.LoginBTN:hover {
+    transform: scale(1.03);
+}
+
+.LoginBTN a {
+    text-decoration: none;
+    color: var(--bitLight);
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.LoginBTN a:hover  {
+    text-decoration: none;
+    color: black;
+}
+
+.UserIcon {
+    margin-left: 15px;
+    width: 35px;
+    height: 35px;
+}
+
+
+
+.SearchSection {
+    background-color: var(--light);
+    width: 100%;
+    height: 100px;
+    padding-top: 10px;
+}
+
+.FindText {
+    color: var(--DarkLight);
+}
