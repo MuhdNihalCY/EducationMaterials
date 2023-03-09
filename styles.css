@@ -1,5 +1,3 @@
-
-
 :root {
     --light: #F5F5F5;
     --bitLight: #D6E6F2;
@@ -10,6 +8,10 @@
 .Facicon {
     width: 16px;
     height: 16px;
+}
+
+* {
+    font-family: Roboto, Lato, Open Sans, Montserrat, Georgia;
 }
 
 
@@ -47,6 +49,8 @@ header {
     margin-left: 15px;
     margin-top: 8px;
     color: var(--light);
+    font-weight: 800;
+    font-family: "Proxima Nova", "Avenir" "Next", "Roboto", Open "Sans";
 }
 
 .SavedTag {
@@ -102,6 +106,7 @@ header {
 
 .FindText {
     color: var(--DarkLight);
+    font-weight: 700;
 }
 
 .RowSearch {
@@ -133,4 +138,123 @@ header {
 
 .custom-select option {
     border-radius: 10px;
+}
+
+
+
+
+
+.Resources {
+    padding: 0px 0;
+}
+
+.ResourcesHeading {
+    text-align: center;
+    margin: 15px 0;
+    font-weight: 800
+}
+
+.VideoHeading {
+    text-align: start;
+    margin: 15px 20px;
+    font-weight: 700
+}
+
+.VideoRow {
+    margin: 0px 5px;
+    width: 98%;
+    height: 185px;
+    background-color: var(--Light);
+    border: 1px solid var(--DarkLight);
+    color: var(--DarkLight);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+@keyframes scroll {
+    100% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+.OneVideo .VideoClass {
+    margin: 1px 5px;
+    border-radius: 10px;
+    height: 167px;
+    aspect-ratio: 16/9;
+    animation: scroll 5s ease-in-out normal;
+
+}
+
+.VideoRow::-webkit-scrollbar {
+    width: 3px;
+}
+
+.VideoRow::-webkit-scrollbar-track {
+    background-color: #f2f2f2;
+    border-radius: 25px;
+    margin: 0 100px;
+    margin-top: 10px;
+}
+
+
+.VideoRow::-webkit-scrollbar-thumb {
+    background-color: #999;
+    border-radius: 25px;
+
+}
+
+.addVideo {
+    width: 140px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0px 30px;
+    flex-direction: column;
+}
+
+.addVideo:hover,
+.Load:hover {
+    transform: scale(1.1);
+}
+
+.Load,
+.Add {
+    margin: 0px 40px;
+    width: 80px;
+    aspect-ratio: 1/1;
+}
+
+.LoadText, .ShowLessText {
+    font-size: 10px;
+    color: red;
+}
+
+.showLessDiv {
+    margin: 5px 10px;
+}
+
+.videoGrid {
+    display: none;
+}
+
+.OneVideoGrid {
+    margin: 0px 5px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.OneVideoGrid .VideoClass {
+    margin: 1px 5px;
+    border-radius: 10px;
+    height: 167px;
+    aspect-ratio: 16/9;
 }
