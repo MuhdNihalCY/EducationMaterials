@@ -103,12 +103,21 @@
 
     <!-- Resoures section starts -->
     <section>
-        <div class="Resources">
+        <!-- <div class="Resources">
             <h2 class="ResourcesHeading">Resources</h2>
-        </div>
+        </div> -->
         <div class="VideoResources">
-            <h2 class="VideoHeading">Video</h2>
             <div class="container">
+                <div class="VideoHeadSec">
+                    <h2 class="VideoHeading">Video</h2>
+                    <!-- add More Video -->
+                    <div class=" addVideo">
+                        <p class="addText">Add Video</p>
+                        <img src="images/plus.png" alt="" class="Add">
+                    </div>
+                    <!-- add More Video Ends HEre -->
+                </div>
+                
                 <div class="VideoRow">
                     <div class="OneVideo">
                         <iframe class="VideoClass" src="https://www.youtube.com/embed/4pTiujyY4IM" frameborder="0"
@@ -132,23 +141,29 @@
                     </div>
 
                     <!-- MoreVideos Load -->
-                    <div class="OneVideo addVideo" onclick="LoadMoreVideos()">
+                    <!-- <div class=" addVideo" onclick="LoadMoreVideos()">
                         <img src="images/loading.png" alt="" class="Load">
                         <p class="LoadText">Click Here to Load More ...</p>
-                    </div>
+                    </div> -->
                     <!-- Load More Videos -->
 
                     <!-- add More Video -->
-                    <div class="OneVideo addVideo">
+                    <!-- <div class=" addVideo">
                         <img src="images/plus.png" alt="" class="Add">
-                    </div>
+                    </div> -->
                     <!-- add More Video Ends HEre -->
                 </div>
+                <!-- MoreVideos Load -->
+                <div class=" addVideo MoreVideo" onclick="LoadMoreVideos()">
+                    <p class="LoadText">Load More ...</p>
+                    <img src="images/down-arrowhead-in-a-circle.png" alt="" class="Load">
+                </div>
+                <!-- MoreVideos Load -->
 
                 <!-- Video in Grid -->
                 <div class="videoGrid">
-                    <div class="row">
-                        <div class="OneVideoGrid">
+                    <div class="GridVideo">
+                        <div class="OneVideoGrid col-12 col-md-6 col-lg-3">
                             <iframe class="VideoClass" src="https://www.youtube.com/embed/4pTiujyY4IM" frameborder="0"
                                 allow="autoplay; encrypted-media" allowfullscreen></iframe>
                         </div>
@@ -167,11 +182,12 @@
                         <div class="OneVideoGrid">
                             <iframe class="VideoClass" src="https://www.youtube.com/embed/4pTiujyY4IM" frameborder="0"
                                 allow="autoplay; encrypted-media" allowfullscreen></iframe>
-                        </div>
-                        <div onclick="ShowLessVeideo()" class="showLessDiv">
-                            <p class="ShowLessText">Show less...</p>
                         </div>
                     </div>
+                </div>
+                <div onclick="ShowLessVeideo()" class="showLessDiv">
+                    <img src="images/down-arrowhead-in-a-circle.png" alt="" class="Load lessLoad">
+                    <p class="ShowLessText">Show less...</p>
                 </div>
             </div>
 
