@@ -154,7 +154,9 @@ header {
     font-weight: 800
 }
 
-.VideoHeading {
+.VideoHeading,
+.NotesHead,
+.Q_PHead {
     text-align: start;
     margin: 15px 20px;
     font-weight: 700
@@ -219,13 +221,17 @@ header {
 
 }
 
-.VideoHeadSec {
+.VideoHeadSec,
+.NotesHeadDiv,
+.Q_PHeadDiv {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.addVideo {
+.addVideo,
+.addNotes,
+.addQ_P {
     height: 100%;
     display: flex;
     align-items: center;
@@ -235,7 +241,8 @@ header {
     background-color: none;
 }
 
-.MoreVideo {
+.MoreVideo,
+.MoreNotes {
     margin-top: 10px;
     align-items: center;
 }
@@ -303,10 +310,56 @@ header {
     display: block;
 }
 
-.EGBOX {
-    width: 10px;
-    height: 50px;
-    background-color: red;
+.NotesResources,
+.Q_Presources {
+    margin: 30px 0;
+}
+
+.NotesRow,
+.Q_PRow {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    overflow: auto;
+}
+
+.NotesOne,
+.Q_POne {
+    width: 240px;
+    height: 240px;
+    /* background-color: var(--DarkLight); */
     margin: 10px;
     float: left;
+    color: var(--DarkLight);
+    font-size: 20px;
+    font-weight: 800;
+    border: 1px solid var(--DarkLight);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    padding: 8px;
+    justify-content: space-around;
+}
+
+.PdfIcon {
+    margin: 5px auto;
+    height: 40px;
+    width: 40px;
+}
+
+.NotesGrid,
+.Q_PGrid {
+    width: 100%;
+    height: 80vh;
+    overflow: auto;
+    overflow-x: none;
+    display: flex;
+    flex-direction: column;
+}
+
+.showLessDivNotes,
+.NotesGrid,
+.Q_PGrid,
+.showLessDivQ_P {
+    display: none;
 }
