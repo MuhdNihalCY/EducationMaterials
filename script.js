@@ -70,7 +70,7 @@ function ShowLessQ_P() {
   MoreNotes.style.display = 'flex';
   showLessDivNotes.style.display = 'none';
   NotesGrid.style.display = 'none';
-}
+} 
 
 
 // Function to open the login form
