@@ -73,3 +73,12 @@ function ShowLessQ_P() {
 }
 
 
+// Function to open the login form
+function openForm() {
+  document.getElementById("myForm").style.display = "block";
+}
+
+// Function to close the login form
+function closeForm() {
+  document.getElementById("myForm").style.display = "none";
+}
