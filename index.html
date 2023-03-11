@@ -28,6 +28,57 @@
 </head>
 
 <body>
+    <!-- Popup starts here -->
+    <section>
+        <!-- login popup -->
+        <div class="Fullpage " id="myForm">
+            <div class="form-popup">
+                <form action="#" method="post" class="form-container">
+                    <div class="LoginHead">
+                        <h2 class="loginHeadText">Login</h2>
+                        <img onclick="closeForm()" src="images/close-button.png" alt="" class="CloseButtonLogin">
+                    </div>
+                    <label for="email"><b>Email</b></label>
+                    <input type="email" placeholder="Enter Email" name="email" required>
+
+                    <label for="psw"><b>Password</b></label>
+                    <input type="password" placeholder="Enter Password" name="psw" required>
+
+                    <button type="submit" class="btn">Login</button>
+                    <a class="btn" onclick="OpenSignup()">Sign Up</a>
+                    <!-- <button type="button" class="btn cancel" onclick="closeForm()">Close</button> -->
+                </form>
+            </div>
+        </div>
+        <!-- signup POpup -->
+        <div class="SignupFullPage" id="Signup">
+            <div class="form-popup">
+                <form action="#" method="post" class="form-container">
+                    <div class="LoginHead">
+                        <h2 class="loginHeadText">Sign Up</h2>
+                        <img onclick="closeForm()" src="images/close-button.png" alt="" class="CloseButtonLogin">
+                    </div>
+                    <label for="email"><b>Email</b></label>
+                    <input type="email" placeholder="Enter Email" name="email" required>
+
+                    <label for="number"><b>Mob Number</b></label>
+                    <input type="number" placeholder="Enter Email" name="number" required>
+
+
+                    <label for="psw"><b>Password</b></label>
+                    <input type="password" placeholder="Enter Password" name="psw" required>
+
+                    <button type="submit" class="btn">Sign Up</button>
+                    <a class="btn" onclick="openForm()">Login</a>
+                    <!-- <button type="button" class="btn cancel" onclick="closeForm()">Close</button> -->
+                </form>
+            </div>
+        </div>
+
+
+    </section>
+    <!-- popup ends here -->
+
     <header>
         <div class="container">
             <div class="HeaderMain">
@@ -38,28 +89,12 @@
                 <div class="RtSide">
                     <img class="SavedTag" src="images/SAVED.png" alt="">
                     <!-- <h2 class="LoginBTN"><a href="">Login</a></h2> -->
-                    <a onclick="openForm()" href=""><img class="UserIcon" src="images/user.png" alt=""></a>
+                    <div onclick="openForm()"><img class="UserIcon" src="images/user.png" alt=""></div>
                 </div>
             </div>
         </div>
     </header>
-    <!-- Popup starts here -->
-    <section>
-        <div class="form-popup" id="myForm">
-            <form action="#" class="form-container">
-              <h2>Login Form</h2>
-              <label for="email"><b>Email</b></label>
-              <input type="text" placeholder="Enter Email" name="email" required>
-          
-              <label for="psw"><b>Password</b></label>
-              <input type="password" placeholder="Enter Password" name="psw" required>
-          
-              <button type="submit" class="btn">Login</button>
-              <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
-            </form>
-          </div>
-    </section>
-    <!-- popup ends here -->
+
     <section class="SearchSection">
         <div class="container">
             <h2 class="FindText">Find Materials</h2>
@@ -277,8 +312,8 @@
         <!-- Notes Ends Here -->
 
 
-         <!-- QP Resources -->
-         <div class="Q_Presources">
+        <!-- QP Resources -->
+        <div class="Q_Presources">
             <div class="container">
                 <div class="Q_PHeadDiv">
                     <h2 class="Q_PHead">Q&P</h2>

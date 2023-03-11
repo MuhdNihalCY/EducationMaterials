@@ -75,10 +75,17 @@ function ShowLessQ_P() {
 
 // Function to open the login form
 function openForm() {
-  document.getElementById("myForm").style.display = "block";
+  document.getElementById("Signup").style.display = "none";
+  document.getElementById("myForm").style.display = "flex";
 }
 
 // Function to close the login form
 function closeForm() {
+  document.getElementById("myForm").style.display = "none";
+  document.getElementById("Signup").style.display = "none";
+}
+
+function OpenSignup(){
+  document.getElementById("Signup").style.display = "flex";
   document.getElementById("myForm").style.display = "none";
 }
