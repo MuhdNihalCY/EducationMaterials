@@ -92,6 +92,24 @@ header {
     height: 35px;
 }
 
+#AdminIcon {
+    margin-left: 18px;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background-color: red;
+    display: none;
+    justify-content: center;
+    margin-top: 5px;
+}
+
+.FirstLetterOfUSer {
+    font-size: 20px;
+    color: var(--bitLight);
+    font-weight: 800;
+}
+
+
 
 
 

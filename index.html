@@ -12,6 +12,10 @@
     <link rel="stylesheet" href="styles.css">
     <script src="script.js"></script>
 
+
+    <!-- jquery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
     <!-- boostrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -33,18 +37,18 @@
         <!-- login popup -->
         <div class="Fullpage " id="myForm">
             <div class="form-popup">
-                <form action="#" method="post" class="form-container">
+                <form action="" id="login-form" method="post" class="form-container">
                     <div class="LoginHead">
                         <h2 class="loginHeadText">Login</h2>
                         <img onclick="closeForm()" src="images/close-button.png" alt="" class="CloseButtonLogin">
                     </div>
                     <label for="email"><b>Email</b></label>
-                    <input type="email" placeholder="Enter Email" name="email" required>
+                    <input type="email" id="LoginEmail" placeholder="Enter Email" name="email" required>
 
                     <label for="psw"><b>Password</b></label>
-                    <input type="password" placeholder="Enter Password" name="psw" required>
+                    <input type="password" id="LoginPaasword" placeholder="Enter Password" name="psw" required>
 
-                    <button type="submit" class="btn">Login</button>
+                    <button type="button" onclick="DoLogin()" class="btn">Login</button>
                     <a class="btn" onclick="OpenSignup()">Sign Up</a>
                     <!-- <button type="button" class="btn cancel" onclick="closeForm()">Close</button> -->
                 </form> 
@@ -53,22 +57,25 @@
         <!-- signup POpup -->
         <div class="SignupFullPage" id="Signup">
             <div class="form-popup">
-                <form action="#" method="post" class="form-container">
+                <form action="" id="signup-form" method="POST" class="form-container">
                     <div class="LoginHead">
                         <h2 class="loginHeadText">Sign Up</h2>
                         <img onclick="closeForm()" src="images/close-button.png" alt="" class="CloseButtonLogin">
                     </div>
+                    <label for="name"><b>name</b></label>
+                    <input id="name" type="text" placeholder="Enter name" name="email" required>
+
                     <label for="email"><b>Email</b></label>
-                    <input type="email" placeholder="Enter Email" name="email" required>
+                    <input id="email" type="email" placeholder="Enter Email" name="email" required>
 
                     <label for="number"><b>Mob Number</b></label>
-                    <input type="number" placeholder="Enter Email" name="number" required>
+                    <input id="number" type="number" placeholder="Enter number" name="number" required>
 
 
                     <label for="psw"><b>Password</b></label>
-                    <input type="password" placeholder="Enter Password" name="psw" required>
+                    <input id="password" type="password" placeholder="Enter Password" name="psw" required>
 
-                    <button type="submit" class="btn">Sign Up</button>
+                    <button type="button" onclick="DoSignup()"  class="btn">Sign Up</button>
                     <a class="btn" onclick="openForm()">Login</a>
                     <!-- <button type="button" class="btn cancel" onclick="closeForm()">Close</button> -->
                 </form>
@@ -89,7 +96,10 @@
                 <div class="RtSide">
                     <img class="SavedTag" src="images/SAVED.png" alt="">
                     <!-- <h2 class="LoginBTN"><a href="">Login</a></h2> -->
-                    <div onclick="openForm()"><img class="UserIcon" src="images/user.png" alt=""></div>
+                    <div id="UserIcon" onclick="openForm()"><img class="UserIcon" src="images/user.png" alt=""></div>
+                    <div class="AdminIcon" onclick="Logout()" id="AdminIcon">
+                        <p class="FirstLetterOfUSer" id="FirstLetterOfUSer">m</p>
+                    </div>
                 </div>
             </div>
         </div>
