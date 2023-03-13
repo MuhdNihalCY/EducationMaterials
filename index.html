@@ -51,7 +51,7 @@
                     <button type="button" onclick="DoLogin()" class="btn">Login</button>
                     <a class="btn" onclick="OpenSignup()">Sign Up</a>
                     <!-- <button type="button" class="btn cancel" onclick="closeForm()">Close</button> -->
-                </form> 
+                </form>
             </div>
         </div>
         <!-- signup POpup -->
@@ -75,7 +75,7 @@
                     <label for="psw"><b>Password</b></label>
                     <input id="password" type="password" placeholder="Enter Password" name="psw" required>
 
-                    <button type="button" onclick="DoSignup()"  class="btn">Sign Up</button>
+                    <button type="button" onclick="DoSignup()" class="btn">Sign Up</button>
                     <a class="btn" onclick="openForm()">Login</a>
                     <!-- <button type="button" class="btn cancel" onclick="closeForm()">Close</button> -->
                 </form>
@@ -96,7 +96,9 @@
                 <div class="RtSide">
                     <img class="SavedTag" src="images/SAVED.png" alt="">
                     <!-- <h2 class="LoginBTN"><a href="">Login</a></h2> -->
-                    <div id="UserIcon" onclick="openForm()"><img class="UserIcon" src="images/user.png" alt=""></div>
+                    <div id="UserIcon" onclick="openForm()">
+                        <img class="UserIcon" src="images/user.png" alt="">
+                    </div>
                     <div class="AdminIcon" onclick="Logout()" id="AdminIcon">
                         <p class="FirstLetterOfUSer" id="FirstLetterOfUSer">m</p>
                     </div>
@@ -173,7 +175,7 @@
                 <div class="VideoHeadSec">
                     <h2 class="VideoHeading">Video</h2>
                     <!-- add More Video -->
-                    <div class=" addVideo">
+                    <div id="addVideo" class=" addVideo">
                         <p class="addText">Add Video</p>
                         <img src="images/plus.png" alt="" class="Add">
                     </div>
@@ -216,7 +218,7 @@
                     <!-- add More Video Ends HEre -->
                 </div>
                 <!-- MoreVideos Load -->
-                <div class=" addVideo MoreVideo" onclick="LoadMoreVideos()">
+                <div class=" MoreVideo" onclick="LoadMoreVideos()">
                     <p class="LoadText">Load More ...</p>
                     <img src="images/down-arrowhead-in-a-circle.png" alt="" class="Load">
                 </div>
@@ -260,7 +262,7 @@
             <div class="container">
                 <div class="NotesHeadDiv">
                     <h2 class="NotesHead">Notes</h2>
-                    <div class=" addVideo">
+                    <div id="addnote" class=" addVideo">
                         <p class="addText">Add Notes</p>
                         <img src="images/plus.png" alt="" class="Add">
                     </div>
@@ -327,7 +329,7 @@
             <div class="container">
                 <div class="Q_PHeadDiv">
                     <h2 class="Q_PHead">Q&P</h2>
-                    <div class=" addQ_P">
+                    <div id="addQ_P" class=" addQ_P">
                         <p class="addText">Add Q&P</p>
                         <img src="images/plus.png" alt="" class="Add">
                     </div>

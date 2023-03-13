@@ -1,29 +1,62 @@
-
-
-
 document.addEventListener('DOMContentLoaded', function () {
   const adminIcon = document.getElementById("AdminIcon");
   const UserIcon = document.getElementById("UserIcon");
+  const FirstLetterOfUSer = document.getElementById("FirstLetterOfUSer")
+  const addVideoBtn = document.getElementById("addVideo");
+  const aadNote = document.getElementById("addnote");
+  const addQ_P = document.getElementById("addQ_P");
+
 
   // Call the functions to set and retrieve the user's info from the cookie
-  const userInfo = getUserInfoFromCookie();
+  //const userInfo = getUserInfoFromCookie();
+  const cookies = document.cookie.split(';').reduce((cookiesObject, cookieString) => {
+    const [cookieName, cookieValue] = cookieString.trim().split('=');
+    cookiesObject[cookieName] = cookieValue;
+    return cookiesObject;
+  }, {});
 
+  // Check if the user is an admin.
+ // console.log("Cookie Below__")
+ // console.log(cookies)
+  var UserNameLetter = cookies.name[0];
+  if (cookies.admin == 'true') {
+   // console.log('User is an admin');
+    addVideoBtn.style.display = "flex";
+    aadNote.style.display = "flex";
+    addQ_P.style.display = "flex";
 
-  if (userInfo.name && userInfo.email) {
-    // console.log(`Name: ${userInfo.name}, Email: ${userInfo.email}`);
-    // alert(userInfo.name," :: ",userInfo.email)
-
-    var UserNameLetter = userInfo.name[0];
-    if (adminIcon) {
-      adminIcon.style.display = "flex";
-    }
-    if (UserIcon) {
-      UserIcon.style.display = "none";
-    }
-
+    UserIcon.style.display = "none";
+    adminIcon.style.display = "flex";
+    FirstLetterOfUSer.textContent = UserNameLetter;
   } else {
-    // console.log("User info not found in cookie.");
+   // console.log('User is not an admin');
+    UserIcon.style.display = "none";
+    adminIcon.style.display = "flex";
+    FirstLetterOfUSer.textContent = UserNameLetter;
   }
+
+  // if (userInfo.name && userInfo.email) {
+  //   // console.log(`Name: ${userInfo.name}, Email: ${userInfo.email}`);
+  //   // alert(userInfo.name," :: ",userInfo.email)
+
+
+  //   var UserNameLetter = userInfo.name[0];
+
+  
+
+
+
+
+
+
+
+
+
+  // } else {
+  //   // console.log("User info not found in cookie.");
+  // }
+
+
 
 
 
@@ -32,18 +65,27 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-function SetCookieForAdmin(email, name) {
+function SetCookieForUser(email, name) {
   // Set a cookie when the user logs in
   document.cookie = `name=${name}; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/`;
   document.cookie = `email=${email}; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/`;
 }
 
+function SetCookieForAdmin(admin) {
+ // console.log("Cookie Going to save",admin)
+ // confirm("Going to save Cookie");
+  document.cookie = `name=${admin.name}; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/`;
+  document.cookie = `email=${admin.email}; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/`;
+  document.cookie = `admin=${admin.Admin}; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/`;
+}
+
 function Logout() {
   // Delete the cookies
   if (confirm("Are You sure to Logout")) {
-   // confirm("Are You sure to Logout")
+    // confirm("Are You sure to Logout")
     document.cookie = "name=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
     document.cookie = "email=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    document.cookie = `admin=; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/`;
 
     // Redirect to the login page
     window.location.href = "/";
@@ -52,19 +94,105 @@ function Logout() {
 
 
 // Retrieve the user's name and email from the cookie
-function getUserInfoFromCookie() {
-  const cookies = document.cookie.split("; ");
-  let name = "";
-  let email = "";
-  for (let i = 0; i < cookies.length; i++) {
-    const cookie = cookies[i].split("=");
-    if (cookie[0] === "name") {
-      name = cookie[1];
-    } else if (cookie[0] === "email") {
-      email = cookie[1];
+// function getUserInfoFromCookie() {
+//   const cookies = document.cookie.split("; ");
+//   let name = "";
+//   let email = "";
+//   for (let i = 0; i < cookies.length; i++) {
+//     const cookie = cookies[i].split("=");
+//     if (cookie[0] === "name") {
+//       name = cookie[1];
+//     } else if (cookie[0] === "email") {
+//       email = cookie[1];
+//     }
+//   }
+//   return { name, email };
+// }
+
+
+
+
+
+
+
+
+
+
+function DoSignup() {
+  var email = document.getElementById("email").value;
+  var number = document.getElementById("number").value;
+  var password = document.getElementById("password").value;
+  var name = document.getElementById("name").value;
+
+
+
+  $.ajax({
+    url: 'http://localhost:3000/admin/signup ',
+    method: 'POST',
+    data: {
+      number: number,
+      email: email,
+      password: password,
+      name: name
+    },
+    success: function (response) {
+      // handle successful signup
+      // console.log("response");
+      // console.log(response.result)
+      var admin = response.result.user
+      // console.log(admin)
+      if (admin) {
+        SetCookieForAdmin(admin)
+      } else {
+        SetCookieForUser(email, name)
+      }
+      // alert("|sf")
+      window.location.href = '/'; // redirect to home page
+
+    },
+    error: function (xhr, status, error) {
+      // handle error
+      console.log("Error", xhr.responseText);
+      console.log("Error", error);
     }
-  }
-  return { name, email };
+  });
+
+}
+
+function DoLogin() {
+  var email = document.getElementById("LoginEmail").value;
+  var password = document.getElementById("LoginPaasword").value;
+
+  $.ajax({
+    url: 'http://localhost:3000/admin/login ',
+    method: 'POST',
+    data: {
+      email: email,
+      password: password
+    },
+    success: function (response) {
+      // handle successful signup
+      var UserStatus = response.UserStatus
+      var user = UserStatus.user
+      if (UserStatus.user) {
+        var name = user.name
+        window.location.href = '/'; // redirect to home page
+        if (user.Admin) {
+          SetCookieForAdmin(user)
+        } else {
+          SetCookieForUser(email, name);
+        }
+
+      } else if (UserStatus.err) {
+        alert(UserStatus.err)
+      }
+    },
+    error: function (xhr, status, error) {
+      // handle error
+      //console.log("Error", xhr.responseText);
+      console.log("Error", error);
+    }
+  });
 }
 
 
@@ -85,7 +213,6 @@ function LoadMoreVideos() {
   MoreVideo.style.display = 'none';
   VideoGrid.style.display = 'block';
   showLessDiv.style.display = 'block';
-  // alert("Load More Videos");
 }
 
 function ShowLessVeideo() {
@@ -97,7 +224,6 @@ function ShowLessVeideo() {
   MoreVideo.style.display = 'flex';
   VideoGrid.style.display = 'none';
   showLessDiv.style.display = 'none';
-  //  alert("Load More Videos");
 }
 
 function LoadMoreNotes() {
@@ -167,86 +293,4 @@ function OpenSignup() {
   document.getElementById("Signup").style.display = "flex";
   document.getElementById("myForm").style.display = "none";
 }
-
-
-
-function DoSignup() {
-  // alert()
-  var email = document.getElementById("email").value;
-  var number = document.getElementById("number").value;
-  var password = document.getElementById("password").value;
-  var name = document.getElementById("name").value;
-
-  $.ajax({
-    url: 'http://localhost:3000/admin/signup ',
-    method: 'POST',
-    data: {
-      number: number,
-      email: email,
-      password: password,
-      name: name
-    },
-    success: function (response) {
-      // handle successful signup
-      // alert(response)
-
-
-      window.location.href = '/'; // redirect to home page
-      console.log(response.message);
-      SetCookieForAdmin(email, name)
-    },
-    error: function (xhr, status, error) {
-      // handle error
-      // alert(response)
-      console.log("Error", xhr.responseText);
-      console.log("Error", error);
-    }
-  });
-
-}
-
-function DoLogin() {
-  var email = document.getElementById("LoginEmail").value;
-  var password = document.getElementById("LoginPaasword").value;
-
-  $.ajax({
-    url: 'http://localhost:3000/admin/login ',
-    method: 'POST',
-    data: {
-      email: email,
-      password: password
-    },
-    success: function (response) {
-      // handle successful signup
-       //alert("Login: ",response)
-       //console.log(user)
-      var UserStatus = response.UserStatus
-      var user = UserStatus.user
-      
-
-
-       if(UserStatus.user){
-        // alert("Logged");
-        var name = user.name
-        window.location.href = '/'; // redirect to home page
-        SetCookieForAdmin(email,name);
-
-       }else if(UserStatus.err){
-        alert(UserStatus.err)
-       }
-
-
-      // window.location.href = '/'; // redirect to home page
-      // console.log(response.message);
-      // SetCookieForAdmin(email,name);
-    },
-    error: function (xhr, status, error) {
-      // handle error
-      // alert(response)
-      //console.log("Error", xhr.responseText);
-      console.log("Error", error);
-    }
-  });
-}
-
 

@@ -87,6 +87,7 @@ header {
 }
 
 .UserIcon {
+    display: flex;
     margin-left: 18px;
     width: 35px;
     height: 35px;
@@ -486,3 +487,7 @@ label {
     /* border: 3px solid var(--bitLight); */
 
 } 
+
+.addVideo, .addQ_P{
+    display: none;
+}
