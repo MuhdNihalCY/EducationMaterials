@@ -16,11 +16,11 @@ document.addEventListener('DOMContentLoaded', function () {
   }, {});
 
   // Check if the user is an admin.
- // console.log("Cookie Below__")
- // console.log(cookies)
+  // console.log("Cookie Below__")
+  // console.log(cookies)
   var UserNameLetter = cookies.name[0];
   if (cookies.admin == 'true') {
-   // console.log('User is an admin');
+    // console.log('User is an admin');
     addVideoBtn.style.display = "flex";
     aadNote.style.display = "flex";
     addQ_P.style.display = "flex";
@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function () {
     adminIcon.style.display = "flex";
     FirstLetterOfUSer.textContent = UserNameLetter;
   } else {
-   // console.log('User is not an admin');
+    // console.log('User is not an admin');
     UserIcon.style.display = "none";
     adminIcon.style.display = "flex";
     FirstLetterOfUSer.textContent = UserNameLetter;
@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   //   var UserNameLetter = userInfo.name[0];
 
-  
+
 
 
 
@@ -72,8 +72,8 @@ function SetCookieForUser(email, name) {
 }
 
 function SetCookieForAdmin(admin) {
- // console.log("Cookie Going to save",admin)
- // confirm("Going to save Cookie");
+  // console.log("Cookie Going to save",admin)
+  // confirm("Going to save Cookie");
   document.cookie = `name=${admin.name}; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/`;
   document.cookie = `email=${admin.email}; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/`;
   document.cookie = `admin=${admin.Admin}; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/`;
@@ -193,6 +193,41 @@ function DoLogin() {
       console.log("Error", error);
     }
   });
+}
+
+function sendFeedback() {
+  var Feedback = document.getElementById("Feedback").value;
+  var email = document.getElementById("emailForFeedback").value;
+
+  if (Feedback) {
+    var data = {
+      Feedback: Feedback
+    }
+
+    if (email) {
+      data.email = email;
+    }
+    // alert(Feedback)
+
+    $.ajax({
+      url: 'http://localhost:3000/admin/feedback',
+      method: 'POST',
+      data: data,
+      success: (response) => {
+        console.log(response);
+        alert("Feedback Sent");
+        document.getElementById("Feedback").value = ""
+        document.getElementById("emailForFeedback").value = ""
+      },
+      error: (xhr, status, error) => {
+        console.log("Error", error);
+      }
+    })
+
+
+  } else {
+    alert("Please provide some Feedback!")
+  }
 }
 
 

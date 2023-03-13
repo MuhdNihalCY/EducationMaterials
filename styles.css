@@ -491,3 +491,58 @@ label {
 .addVideo, .addQ_P{
     display: none;
 }
+
+
+/* feedback */
+.feedbackLabel {
+    font-size: 30px;
+    font-weight: 900;
+    color: var(--DarkLight);
+    margin-bottom: 10px;
+}
+
+.feedbackTexarea {
+    height: 170px; /* Change this value to adjust the height */
+    color: var(--DarkLight);
+    background-color: var(--bitLight);
+    border-radius: 15px;
+    border-color: var(--DarkLight);
+
+    display: block;
+    width: 100%;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    /* color: #212529; */
+    /* background-color: #fff; */
+    background-clip: padding-box;
+    /* border: 1px solid #ced4da; */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    /* border-radius: 0.25rem; */
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    font-size: 20px;
+}
+.feedbackBTN {
+    width: 100%;
+    margin: 20px 0;
+    border-radius: 20px;
+    padding: 5px;
+    color: var(--light);
+    font-weight: 700;
+    background-color: #303841;
+}
+
+#emailForFeedback {
+    width: 100%;
+    margin: 10px 0;
+    padding: 5px;
+    color: var(--DarkLight);
+    border-color: var(--DarkLight);
+    background-color: var(--bitLight);
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 400;
+}
